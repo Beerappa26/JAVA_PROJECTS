@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class MulDiv {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input two numbers
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+
+        // Multiplication without '*' operator
+        int mulResult = 0;
+        for (int i = 0; i < Math.abs(num2); i++) {
+            mulResult += Math.abs(num1); // Add num1 to itself num2 times
+        }
+
+       
+        if (num1 < 0 && num2 < 0) {
+            mulResult = mulResult;
+        } else if (num1 < 0 || num2 < 0) {
+            mulResult = -mulResult;
+        }
+
+        // Division without '/' operator
+        int divResult = 0;
+        int remainder = Math.abs(num1);
+        while (remainder >= Math.abs(num2)) {
+            remainder -= Math.abs(num2); // Subtract num2 from num1
+            divResult++;
+        }
+
+      
+        if (num1 < 0 && num2 < 0) {
+            divResult = divResult;
+        } else if (num1 < 0 || num2 < 0) {
+            divResult = -divResult;
+        }
+
+        // Output results
+        System.out.println("Multiplication result: " + mulResult);
+        System.out.println("Division result: " + divResult);
+        System.out.println("Remainder: " + remainder);
+
+        sc.close();
+    }
+}
